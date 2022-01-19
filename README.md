@@ -34,14 +34,14 @@ Create a `config.json` file in the project root using this template:
 ## Commands
 | Command           | Description                                                   |
 |-------------------|---------------------------------------------------------------|
-| music help        | shows all available commands                                  |
-| music join        | joins your current voice channel (must be in a voice channel) |
-| music play [file] | plays a music file                                            |
-| music stop        | stops playing the current song                                |
-| music leave       | leaves the voice channel                                      |
-| music eval [code] | runs javascript (bot owner only)                              |
-| music info        | shows bot info and statistics                                 |
-| music stopbot     | stops the bot (bot owner only)                                |
+| !help        | shows all available commands                                  |
+| !join        | joins your current voice channel (must be in a voice channel) |
+| !play [file] | plays a music file                                            |
+| !stop        | stops playing the current song                                |
+| !leave       | leaves the voice channel                                      |
+| !eval [code] | runs javascript (bot owner only)                              |
+| !info        | shows bot info and statistics                                 |
+| !stopbot     | stops the bot (bot owner only)                                |
 
 ## Support
 This is not for public use. If you don't know GO I do not recommend using this and I will not provide support for that.
