@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/ponbac/GoMusicBot/framework"
 	"fmt"
+	"github.com/ponbac/GoMusicBot/framework"
 )
 
 func PlayCommand(ctx framework.Context) {
@@ -22,7 +22,12 @@ func PlayCommand(ctx framework.Context) {
 			return
 		}
 		go queue.Start(sess, func(msg string) {
-			ctx.Reply(msg)
+			//ctx.Reply(msg)
+			if msg == "Finished queue." {
+				ctx.Discord.UpdateGameStatus(0, "absolutely nothing 😞")
+			} else {
+				ctx.Discord.UpdateListeningStatus("💿 " + msg + " 💿")
+			}
 		})
 	} else {
 		fmt.Println("PlayCommand: sess is nil")

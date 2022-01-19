@@ -39,7 +39,7 @@ func (queue *SongQueue) Start(sess *Session, callback func(string)) {
 	queue.Running = true
 	for queue.HasNext() && queue.Running {
 		song := queue.Next()
-		callback("Now playing `" + song.Title + "`.")
+		callback(song.Title)
 		sess.Play(song)
 	}
 	if !queue.Running {
