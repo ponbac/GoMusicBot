@@ -4,15 +4,15 @@ import (
 	"github.com/ponbac/GoMusicBot/framework"
 )
 
-func JoinCommand(ctx framework.Context) *framework.Session {
+func JoinCommand(ctx framework.Context) {
 	if ctx.Sessions.GetByGuild(ctx.Guild.ID) != nil {
 		ctx.Reply("Already connected! Use `!leave` for the bot to disconnect.")
-		return nil
+		return
 	}
 	vc := ctx.GetVoiceChannel()
 	if vc == nil {
 		ctx.Reply("You must be in a voice channel to use the bot!")
-		return nil
+		return
 	}
 	sess, err := ctx.Sessions.Join(ctx.Discord, ctx.Guild.ID, vc.ID, framework.JoinProperties{
 		Muted:    false,
@@ -20,8 +20,7 @@ func JoinCommand(ctx framework.Context) *framework.Session {
 	})
 	if err != nil {
 		ctx.Reply("An error occured!")
-		return nil
+		return
 	}
 	ctx.Reply("Joined <#" + sess.ChannelId + ">!")
-	return sess
 }
